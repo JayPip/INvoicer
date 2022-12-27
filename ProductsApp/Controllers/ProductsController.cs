@@ -40,7 +40,22 @@ namespace ProductsApp.Controllers
         [Route("{id:int}")]
         public async Task<IActionResult> UpdateProduct([FromRoute] int id, Product updatedProduct) {
             var product = await _appDbContext.Products.FindAsync(id);
+            if (product == null) return NotFound();
+            product.Code = updatedProduct.Code;
+            product.Name = updatedProduct.Name;
+            product.Price = updatedProduct.Price;
+            await _appDbContext.SaveChangesAsync();
             return Ok(product);
+        }
+        [HttpDelete]
+        [Route("{id:int}")]
+        public async Task<IActionResult> DeleteProduct([FromRoute] int id) {
+            var product = await _appDbContext.Products.FindAsync(id);
+            if (product == null) return NotFound();
+            _appDbContext.Products.Remove(product);
+            await _appDbContext.SaveChangesAsync();
+            return Ok(product);
+            
         }
     }
 }
