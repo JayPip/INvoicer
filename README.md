@@ -1,3 +1,5 @@
-# Products-API
-Back end for Products app UI which looks like this:
-<img width="960" alt="209682661-87dd149e-4245-44b7-a9dd-77c4a91e956e" src="https://user-images.githubusercontent.com/46865973/209737371-1586bd67-8882-4bce-aaf9-50768d641e97.png">
+# Products-ERP
+Angular application with Dotnet Core 6 API. Main functionalities for now are managing products list as well as registering and loging in.
+<img width="960" alt="image" src="https://user-images.githubusercontent.com/46865973/213884798-8ea5f007-4a05-4e5c-b76b-369fad98de16.png">
+
+In the future im planning on implementing task list which could be used in a group for developing a project. It could be using different roles assigned to a user.
