@@ -2,7 +2,6 @@ import { Component, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import {Product} from 'src/app/Models/product.model'
 import { ProductsService } from 'src/app/Services/products.service';
-import {  MatDialog } from '@angular/material/dialog';
 import { AddProductComponent } from '../add-product/add-product.component';
 
 @Component({
@@ -17,7 +16,7 @@ export class ProductsListComponent implements OnInit
   /**
    *
    */
-  constructor(private productsService: ProductsService, private matDialog: MatDialog,private router: Router) {  }
+  constructor(private productsService: ProductsService,private router: Router) {  }
   ngOnInit(): void {
     this.productsService.getAllProducts().subscribe(
       {
@@ -52,8 +51,5 @@ export class ProductsListComponent implements OnInit
     );
     console.log(newArray);
     this.filteredProducts = newArray;
-  }
-  openAddProductModal(){
-    this.matDialog.open(AddProductComponent)
   }
 }
