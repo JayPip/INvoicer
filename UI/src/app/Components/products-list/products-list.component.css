@@ -1,13 +1,16 @@
-a {
+.edit-button {
     text-decoration: none ;
     color: black;
   }
 
-  button{
+.delete-button{
     border: none;
     background: none;
   }
-
 .prodList{
-  padding: 3%;
+  padding: 5%;
+  
+}
+.container{
+  max-width: 550px;
 }

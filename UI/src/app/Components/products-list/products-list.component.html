@@ -1,40 +1,39 @@
-
-<div class="container">
-    <div class="row">
-      <div class="panel panel-primary">
-        <div class="prodList">
-            <form>
-                <input (keyup)="applyFilter($event)"  placeholder="Filter">
-                <button class="btn btn-lg btn-outline-primary" (click)="openModal()">Launch demo modal</button>
-
-             </form>
-            <div class="container-fluid">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Code</th>
-                            <th>Name</th>
-                            <th>Price</th>
-                            <th></th>
-                            <th></th>
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let product of filteredProducts">
-                            <td>{{product.id}}</td>
-                            <td>{{product.code}}</td>
-                            <td>{{product.name}}</td>
-                            <td>{{product.price}}</td>
-                            <td><a [routerLink]="['/products','edit',product.id]"><i class="bi bi-pencil-fill"></i> </a></td>
-                            <td><button (click)="deleteProduct(product.id)"> <i class="bi bi-trash-fill"></i></button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+     <div class="container">
+        <div class="row">
+            <div class="panel panel-primary">
+                <div class="prodList">
+                    <form>
+                        <input (keyup)="applyFilter($event)"  placeholder="Filter" style="margin-right: 5%;">
+                        <a href="/products/add" class="btn btn-success">Add Product</a>  
+                     </form>
+                    <div class="container-fluid">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Code</th>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th></th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let product of filteredProducts">
+                                    <td>{{product.id}}</td>
+                                    <td>{{product.code}}</td>
+                                    <td>{{product.name}}</td>
+                                    <td>{{product.price}}</td>
+                                    <td><a [routerLink]="['/products','edit',product.id]" class="btn btn-light" style="margin: 1%"><i class="bi bi-pencil-fill"></i> Edit</a>
+                                    <button (click)="deleteProduct(product.id)" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+              </div>
         </div>
-      </div>
-    </div>
-  </div>
+
+     </div>
+     
 <router-outlet></router-outlet>
