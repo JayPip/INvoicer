@@ -1,4 +1,6 @@
-
+<div class="container">
+    <div class="row">
+        <div class="panel panel-primary">
             <form  #form="ngForm" (ngSubmit)="addProduct()">
                 <div >
                     <h1 class="p-3">Add Product</h1>
@@ -8,11 +10,14 @@
                         <h3 class="px-3">Name</h3> 
                     <input type="text" id="name" name="name" class="form-control" placeholder="" [(ngModel)]="newProduct.name">
                         <h3 class="px-3 pt-3">Price</h3> 
-                    <input type="text" id="price" name="price" class="form-control" placeholder="" [(ngModel)]="newProduct.price">
+                    <input type="text" id="price" name="price" class="form-control"  style="max-width: 50px;"placeholder="" [(ngModel)]="newProduct.price">
                     <div class="">
                         <div class="p-2">
-                            <button class="right btn btn-dark">ADD</button>
+                            <button class="btn-lg btn btn-dark">ADD</button>
                         </div>
                     </div>
                 </div>
             </form>
+        </div>
+    </div>
+</div>

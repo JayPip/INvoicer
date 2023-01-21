@@ -1,1 +1,13 @@
+.container{
+    max-width: 550px;
+  }
 
+  input{
+    margin-left: 2%;
+    max-width: 400px;
+  }
+
+  button{
+    width: 525px; margin-top:1%;
+    margin-bottom: 1%;
+  }
