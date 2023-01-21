@@ -12,6 +12,7 @@ import { RegisterCardComponent } from './Components/register-card/register-card.
 import { LoginCardComponent } from './Components/login-card/login-card.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialog } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialog
   ],
   providers: [],
   bootstrap: [AppComponent]

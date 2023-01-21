@@ -3,10 +3,10 @@ a {
     color: black;
   }
 
-  button{
-    border: none;
-    background: none;
-  }
+.delete-button{
+  background: none;
+  border: none;
+}
 
 .prodList{
   padding: 3%;

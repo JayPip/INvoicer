@@ -1,7 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-body{
+.bg{
     background: rgb(66,105,124);
     background: linear-gradient(90deg, rgba(66,105,124,1) 14%, rgba(33,37,41,1) 100%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

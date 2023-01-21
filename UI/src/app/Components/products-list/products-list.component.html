@@ -5,8 +5,9 @@
         <div class="prodList">
             <form>
                 <input (keyup)="applyFilter($event)"  placeholder="Filter">
-                <button class="btn btn-lg btn-outline-primary" (click)="openModal()">Launch demo modal</button>
-
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Launch demo modal
+                  </button>
              </form>
             <div class="container-fluid">
                 <table class="table">
@@ -28,7 +29,7 @@
                             <td>{{product.name}}</td>
                             <td>{{product.price}}</td>
                             <td><a [routerLink]="['/products','edit',product.id]"><i class="bi bi-pencil-fill"></i> </a></td>
-                            <td><button (click)="deleteProduct(product.id)"> <i class="bi bi-trash-fill"></i></button></td>
+                            <td><button (click)="deleteProduct(product.id)" class="delete-button"> <i class="bi bi-trash-fill "></i></button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -36,5 +37,7 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   </div>
 <router-outlet></router-outlet>
