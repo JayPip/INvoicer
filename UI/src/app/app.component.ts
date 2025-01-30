@@ -7,28 +7,9 @@ import { AuthenticationService } from './Services/authentication.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent  {
   /**
    *
    */
-  title = 'AngularUI';
-  public isUserAuthenticated: boolean;
-  //injection of authentication service
-  constructor(private router: Router, private authService: AuthenticationService) {}
-  ngOnInit() {
-    //subscribe to notification sent form authentication service
-    this.authService.authChanged.subscribe(res =>{
-      this.isUserAuthenticated = res;
-    })
-  }
-  public logout = () => {
-    this.authService.logout();
-    this.router.navigate(["/"]);
-  }
-
   
-
-  GetUrl(){
-    return this.router.url;
-  }
 }

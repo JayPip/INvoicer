@@ -1,23 +1,13 @@
-<nav class="navbar navbar-dark bg-dark">
-        <div class="btn-group" role="group" >
-          <a routerLink="[/products]" *ngIf="GetUrl()==='/products' ; else  notProductsList" class="btn btn-light"><i class="bi bi-list-ol"></i> Products List</a>  
-            <ng-template #notProductsList>
-                <a routerLink="products"class="btn btn-dark"><i class="bi bi-list-ol"></i> Products List</a>
-            </ng-template>
-            <ng-template #notAddProduct>
-              <a [routerLink]="['/products/add']" routerLinkActive="active" class="btn btn-dark"> Add Product</a>
-            </ng-template>
-        </div>
-          <form class="form-inline my-2 my-lg-0">
-          <div *ngIf='isUserAuthenticated' class="navbar-nav mr-auto mt-2 mt-lg-0">
-              <button class="btn btn-link" style="color: #ffffff80;" (click)="logout()">Logout</button>
-          </div>
-          <div *ngIf='!isUserAuthenticated' class="navbar-nav mr-auto mt-2 mt-lg-0">
-              <a class="nav-link"[routerLink]="['/']" routerLinkActive="active" 
-                [routerLinkActiveOptions]="{exact: true}">Login</a>
-              <a class="nav-link"[routerLink]="['/register']" routerLinkActive="active" 
-                [routerLinkActiveOptions]="{exact: true}">Register</a>
-          </div>
-        </form>
-  </nav>
+<div class="navbar navbar-dark bg-dark">
+  <app-navbar></app-navbar>
+</div>
+<div class="main-container">
+  <div class="side-nav">
+    <app-sidenav></app-sidenav>
+  </div>
+  <div class="main">
+    <app-main></app-main>
+  </div>
+</div>
+
 <router-outlet></router-outlet>

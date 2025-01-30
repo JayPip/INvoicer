@@ -12,6 +12,10 @@ import { RegisterCardComponent } from './Components/register-card/register-card.
 import { LoginCardComponent } from './Components/login-card/login-card.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SidenavComponent } from './Components/sidenav/sidenav.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { MainComponent } from './Components/main/main.component';
+import { NavbarComponent } from './Components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AddProductComponent,
     EditProductComponent,
     RegisterCardComponent,
-    LoginCardComponent
+    LoginCardComponent,
+    SidenavComponent,
+    MainComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +36,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]
