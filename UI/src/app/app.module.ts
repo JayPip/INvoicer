@@ -16,6 +16,12 @@ import { SidenavComponent } from './Components/sidenav/sidenav.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MainComponent } from './Components/main/main.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
+import {MatListModule} from '@angular/material/list';
+import { DashboardComponent } from './Components/dashboard/dashboard.component';
+import { UploadInvoiceComponent } from './Components/upload-invoice/upload-invoice.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ModalComponent } from './Components/modal/modal.component';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +33,10 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
     LoginCardComponent,
     SidenavComponent,
     MainComponent,
-    NavbarComponent
+    NavbarComponent,
+    DashboardComponent,
+    UploadInvoiceComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +46,9 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatListModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

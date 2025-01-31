@@ -32,10 +32,10 @@ namespace ProductsApp.Controllers
             {
                 var errors = result.Errors.Select(e => e.Description);
 
-                return BadRequest(new RegistrationResponseDto { Errors = errors });
+                return BadRequest(new RegistrationResponse { IsSuccessfulRegistration = false, Errors = errors });
             }
 
-            return StatusCode(201);
+            return Ok(new RegistrationResponse {IsSuccessfulRegistration = true});
         }
         [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] UserForLogin userForAuthentication)

@@ -30,7 +30,7 @@ export class LoginCardComponent implements OnInit {
     this.showError = false;
     const formValues = { ...userLogin };
     const user: UserForLoginDto = {
-      username: formValues.nickname,
+      nickname: formValues.nickname,
       password: formValues.password,
     };
     this.authService.loginUser(user)

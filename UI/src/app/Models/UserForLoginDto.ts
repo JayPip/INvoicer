@@ -1,4 +1,4 @@
 export interface UserForLoginDto {
-    username: string;
+    nickname: string;
     password: string;
 }

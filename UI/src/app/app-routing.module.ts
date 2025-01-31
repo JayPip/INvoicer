@@ -6,28 +6,25 @@ import { EditProductComponent } from './Components/edit-product/edit-product.com
 import { LoginCardComponent } from './Components/login-card/login-card.component';
 import { ProductsListComponent } from './Components/products-list/products-list.component';
 import { RegisterCardComponent } from './Components/register-card/register-card.component';
+import { DashboardComponent } from './Components/dashboard/dashboard.component';
+import { UploadInvoiceComponent } from './Components/upload-invoice/upload-invoice.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: LoginCardComponent
-  },
-  {
-    path: 'register',
-    component: RegisterCardComponent
+    component: DashboardComponent
   },
   {
     path: 'products',
     component:ProductsListComponent
   },
   {
-    path: 'products/add',
-    component:AddProductComponent
-  }
-  ,
+    path: 'dashboard',
+    component:DashboardComponent
+  },
   {
-    path: 'products/edit/:id',
-    component:EditProductComponent
+    path: 'upload',
+    component:UploadInvoiceComponent
   }
 ];
 

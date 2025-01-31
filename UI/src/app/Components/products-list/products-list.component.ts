@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import {Product} from 'src/app/Models/product.model'
 import { ProductsService } from 'src/app/Services/products.service';
 import { AddProductComponent } from '../add-product/add-product.component';
+import { ModalComponent } from '../modal/modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-products-list',
@@ -16,7 +18,7 @@ export class ProductsListComponent implements OnInit
   /**
    *
    */
-  constructor(private productsService: ProductsService,private router: Router) {  }
+  constructor(private productsService: ProductsService,private router: Router, private dialog: MatDialog) {  }
   ngOnInit(): void {
     this.productsService.getAllProducts().subscribe(
       {
@@ -38,6 +40,12 @@ export class ProductsListComponent implements OnInit
       }); 
       }
     })
+  }
+
+  openModal( name: string ): void {
+    this.dialog.open(ModalComponent, {
+      data: {name: name}
+    });
   }
   
   applyFilter(event: any){

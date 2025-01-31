@@ -4,7 +4,7 @@
             <div class="prodList">
                 <form>
                     <input (keyup)="applyFilter($event)"  placeholder="Filter" style="margin-right: 5%;">
-                    <a href="/products/add" class="btn btn-success">Add Product</a>  
+                    <button mat-button (click)="openModal('addProduct')">Add Product</button>
                     </form>
                 <div class="container-fluid">
                     <table class="table">
@@ -31,8 +31,6 @@
                     </table>
                 </div>
             </div>
-            </div>
+        </div>
     </div>
 </div>
-     
-<router-outlet></router-outlet>
