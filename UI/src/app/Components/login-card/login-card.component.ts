@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Route, Router } from '@angular/router';
 import { LoginResponseDto } from 'src/app/Models/LoginResponseDto';
 import { UserForLoginDto } from 'src/app/Models/UserForLoginDto';
@@ -38,7 +39,6 @@ export class LoginCardComponent implements OnInit {
       next: (res: LoginResponseDto) =>{
         localStorage.setItem("token", res.token);
         this.authService.sendAuthStateChangeNotification(res.isAuthSuccessful);
-        this.router.navigateByUrl('/products');
         console.log("Successful login");
       } ,
       error: (err: HttpErrorResponse) => {   

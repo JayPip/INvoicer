@@ -29,7 +29,6 @@ export class AddProductComponent implements OnInit {
     ({
       next: (product) => {
         //return to products list after adding
-        this.router.navigate(['products']);
       }
     });
   }

@@ -42,9 +42,9 @@ export class ProductsListComponent implements OnInit
     })
   }
 
-  openModal( name: string ): void {
+  openModal( name: string, productId?: number ): void {
     this.dialog.open(ModalComponent, {
-      data: {name: name}
+      data: {name: name, productId: productId}
     });
   }
   

@@ -4,7 +4,7 @@
             <div class="prodList">
                 <form>
                     <input (keyup)="applyFilter($event)"  placeholder="Filter" style="margin-right: 5%;">
-                    <button mat-button (click)="openModal('addProduct')">Add Product</button>
+                    <button mat-button class="btn btn-light" (click)="openModal('addProduct')"><i class="bi bi-plus-circle"></i> Add Product</button>
                     </form>
                 <div class="container-fluid">
                     <table class="table">
@@ -24,7 +24,8 @@
                                 <td>{{product.code}}</td>
                                 <td>{{product.name}}</td>
                                 <td>{{product.price}}</td>
-                                <td><a [routerLink]="['/products','edit',product.id]" class="btn btn-light" style="margin: 1%"><i class="bi bi-pencil-fill"></i> Edit</a>
+                                <!-- <a [routerLink]="['/products','edit',product.id]" class="btn btn-light" style="margin: 1%"></a> -->
+                                <td><button mat-button class="btn btn-light" (click)="openModal('editProduct', product.id)"><i class="bi bi-pencil-fill"></i> Edit</button>
                                 <button (click)="deleteProduct(product.id)" class="btn btn-danger">Delete</button></td>
                             </tr>
                         </tbody>

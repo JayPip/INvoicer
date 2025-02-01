@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/Models/product.model';
 import { ProductsService } from 'src/app/Services/products.service';
@@ -9,6 +9,8 @@ import { ProductsService } from 'src/app/Services/products.service';
   styleUrls: ['./edit-product.component.css']
 })
 export class EditProductComponent implements OnInit {
+  @Input() data: any;
+
   productDetails: Product= {
     id: 0,
     code: '',
@@ -20,8 +22,8 @@ export class EditProductComponent implements OnInit {
   }
   ngOnInit(): void {
       this.route.paramMap.subscribe({
-        next: (params) =>{
-          const id = params.get('id');
+        next: () =>{
+          const id = this.data?.productId;
           if (id){
             this.productsService.getProduct(id).subscribe(
               {
@@ -34,6 +36,7 @@ export class EditProductComponent implements OnInit {
         }
       })
   }
+  
   updateProduct(){
     this.productsService.updateProduct(this.productDetails.id, this.productDetails).subscribe(
       {
