@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/Models/product.model';
 import { ProductsService } from 'src/app/Services/products.service';
@@ -17,9 +18,7 @@ export class EditProductComponent implements OnInit {
     name: '',
     price: 0
   }
-  constructor(private route: ActivatedRoute, private productsService: ProductsService,private router: Router){
-
-  }
+  constructor(private route: ActivatedRoute, private productsService: ProductsService,private router: Router,private dialogRef: MatDialogRef<EditProductComponent>){}
   ngOnInit(): void {
       this.route.paramMap.subscribe({
         next: () =>{
@@ -41,10 +40,13 @@ export class EditProductComponent implements OnInit {
     this.productsService.updateProduct(this.productDetails.id, this.productDetails).subscribe(
       {
         next: (response) => {
-          //return to products list after adding
-          this.router.navigate(['products']);
+          this.closeModal();
         }
       }
     );
+  }
+
+  closeModal(): void {
+    this.dialogRef.close({success: true}); // Closes the modal
   }
 }

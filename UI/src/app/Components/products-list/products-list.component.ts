@@ -43,9 +43,25 @@ export class ProductsListComponent implements OnInit
   }
 
   openModal( name: string, productId?: number ): void {
-    this.dialog.open(ModalComponent, {
-      width:'50%',
+    const dialogRef = this.dialog.open(ModalComponent, {
+      width:'30%',
       data: {name: name, productId: productId}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result)
+      if(result.success==true){
+        this.productsService.getAllProducts().subscribe(
+          {
+            next: (products)=>{
+              this.products = products;
+              this.filteredProducts = products;
+            },
+            //error handling
+            error: (response) => {console.log(response)}
+          }
+        )
+      }
     });
   }
   

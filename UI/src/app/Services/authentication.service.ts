@@ -10,6 +10,7 @@ import { UserForRegistrationDto } from '../Models/UserForRegistrationDto';
   providedIn: 'root'
 })
 export class AuthenticationService {
+  
   private authChangeSub = new Subject<boolean>()
   public authChanged = this.authChangeSub.asObservable();
   

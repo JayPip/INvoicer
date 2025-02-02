@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/Models/product.model';
 import { ProductsService } from 'src/app/Services/products.service';
@@ -18,7 +19,7 @@ export class AddProductComponent implements OnInit {
   /**
    *
    */
-  constructor(private productsService: ProductsService, private router: Router){}
+  constructor(private productsService: ProductsService, private router: Router,private dialogRef: MatDialogRef<AddProductComponent>){}
 
   ngOnInit(): void {
       
@@ -28,8 +29,12 @@ export class AddProductComponent implements OnInit {
     this.productsService.addProduct(this.newProduct).subscribe
     ({
       next: (product) => {
-        //return to products list after adding
+        this.closeModal();
       }
     });
+  }
+
+  closeModal(): void {
+    this.dialogRef.close({success: true}); // Closes the modal
   }
 }
