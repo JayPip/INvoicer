@@ -44,6 +44,7 @@ export class ProductsListComponent implements OnInit
 
   openModal( name: string, productId?: number ): void {
     this.dialog.open(ModalComponent, {
+      width:'50%',
       data: {name: name, productId: productId}
     });
   }

@@ -1,23 +1,20 @@
-<div class="container">
-    <div class="row">
-        <div class="panel panel-primary">
-            <form class="form" #form="ngForm" (ngSubmit)="updateProduct()" >
-                <div>
-                    <h1 class="p-3">Edit Product</h1>
-                    <h3 class="px-3">Code</h3> 
-                    <input type="text" class="form-control" [(ngModel)]="productDetails.code"
-                    id="code" name="code"  placeholder="" >
-                        <h3 class="px-3">Name</h3> 
-                    <input type="text" id="name" name="name" class="form-control" placeholder="" [(ngModel)]="productDetails.name">
-                        <h3 class="px-3 pt-3">Price</h3> 
-                    <input type="text" id="price" name="price" style="max-width: 50px; margin-left: 2%;" class="form-control" placeholder="" [(ngModel)]="productDetails.price">
-                    <div class="d-flex">
-                        <div class="p-2">
-                            <button class="btn btn-lg btn-dark" >SAVE</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
+
+<form class="form" #form="ngForm" (ngSubmit)="updateProduct()" >
+    <div>
+        <h1 class="p-3">Edit Product</h1>
+        <h3 class="px-3">Code</h3> 
+        <input type="text" class="form-control" [(ngModel)]="productDetails.code"
+        id="code" name="code"  placeholder="" >
+            <h3 class="px-3">Name</h3> 
+        <input type="text" id="name" name="name" class="form-control" placeholder="" [(ngModel)]="productDetails.name">
+            <h3 class="px-3 pt-3">Price</h3> 
+        <input type="text" id="price" name="price" style="max-width: 50px; margin-left: 2%;" class="form-control" placeholder="" [(ngModel)]="productDetails.price">
+        <div class="d-flex">
+            <div class="p-2">
+                <button class="btn btn-lg btn-dark" >SAVE</button>
+            </div>
         </div>
     </div>
-</div>
+</form>
+
+
