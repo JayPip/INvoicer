@@ -14,7 +14,10 @@ export class AddProductComponent implements OnInit {
     id: 0,
     code: '',
     name: '',
-    price: 0
+    price: 0,
+    taxRate: 0,
+    taxAmount: 0,
+    priceTax: 0
   }
   /**
    *

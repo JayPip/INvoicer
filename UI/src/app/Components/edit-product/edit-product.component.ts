@@ -16,7 +16,10 @@ export class EditProductComponent implements OnInit {
     id: 0,
     code: '',
     name: '',
-    price: 0
+    price: 0,
+    taxRate:0,
+    taxAmount: 0,
+    priceTax:0
   }
   constructor(private route: ActivatedRoute, private productsService: ProductsService,private router: Router,private dialogRef: MatDialogRef<EditProductComponent>){}
   ngOnInit(): void {

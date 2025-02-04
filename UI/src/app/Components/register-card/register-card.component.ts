@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { UserForRegistrationDto } from 'src/app/Models/UserForRegistrationDto';
 import { AuthenticationService } from 'src/app/Services/authentication.service';
@@ -13,7 +14,7 @@ import { AuthenticationService } from 'src/app/Services/authentication.service';
 export class RegisterCardComponent implements OnInit {
   registerForm: FormGroup;
 
-  constructor(private authService: AuthenticationService, private router: Router) { }
+  constructor(private authService: AuthenticationService, private router: Router,private dialogRef: MatDialogRef<RegisterCardComponent>) { }
 
   ngOnInit(): void {
     this.registerForm = new FormGroup({
@@ -42,9 +43,15 @@ export class RegisterCardComponent implements OnInit {
 
     this.authService.registerUser(user)
     .subscribe({
-      next: (_) =>this.router.navigateByUrl('/') ,
+      next: (_) =>{
+        this.router.navigateByUrl('/')
+        this.closeModal()
+      } ,
       error: (err: HttpErrorResponse) => console.log(err.error)
     })
   }
-
+  
+  closeModal(): void {
+    this.dialogRef.close({success: true}); // Closes the modal
+  }
 }

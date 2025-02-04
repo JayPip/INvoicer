@@ -25,6 +25,7 @@
   <ItemGroup>
     <Folder Include="Migrations\" />
     <Folder Include="UI\" />
+    <Folder Include="Uploads\" />
   </ItemGroup>
 
 </Project>

@@ -1,34 +1,36 @@
-
-        <div class="panel panel-primary">
-            <div class="prodList">
-                <form>
-                    <input (keyup)="applyFilter($event)"  placeholder="Filter" style="margin-right: 5%;">
-                    <button mat-button class="btn btn-light" (click)="openModal('addProduct')"><i class="bi bi-plus-circle"></i> Add Product</button>
-                    </form>
-                <div class="container-fluid">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Code</th>
-                                <th>Name</th>
-                                <th>Price</th>
-                                <th></th>
-                                
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let product of filteredProducts">
-                                <td>{{product.id}}</td>
-                                <td>{{product.code}}</td>
-                                <td>{{product.name}}</td>
-                                <td>{{product.price}}</td>
-                                <!-- <a [routerLink]="['/products','edit',product.id]" class="btn btn-light" style="margin: 1%"></a> -->
-                                <td><button mat-button class="btn btn-light" (click)="openModal('editProduct', product.id)"><i class="bi bi-pencil-fill"></i> Edit</button>
-                                <button (click)="deleteProduct(product.id)" class="btn btn-danger">Delete</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+<div class="panel panel-primary">
+    <div class="prodList">
+        <form>
+            <input (keyup)="applyFilter($event)"  placeholder="Filter" style="margin-right: 5%;">
+            <button mat-button class="btn btn-light" (click)="openModal('addProduct')"><i class="bi bi-plus-circle"></i> Add Product</button>
+        </form>
+        <div class="container-fluid">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Tax Rate [%]</th>
+                        <th>Tax Amount</th>
+                        <th>Price Brutto</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of filteredProducts">
+                        <td>{{product.code}}</td>
+                        <td>{{product.name}}</td>
+                        <td>{{product.price}}</td>
+                        <td>{{product.taxRate}}</td>
+                        <td>{{product.taxAmount}}</td>
+                        <td>{{product.priceTax}}</td>
+                        <!-- <a [routerLink]="['/products','edit',product.id]" class="btn btn-light" style="margin: 1%"></a> -->
+                        <td><button mat-button class="btn btn-light" (click)="openModal('editProduct', product.id)"><i class="bi bi-pencil-fill"></i> Edit</button>
+                        <button (click)="deleteProduct(product.id)" class="btn btn-danger">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
+    </div>
+</div>

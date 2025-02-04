@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Route, Router } from '@angular/router';
 import { LoginResponseDto } from 'src/app/Models/LoginResponseDto';
 import { UserForLoginDto } from 'src/app/Models/UserForLoginDto';
@@ -16,7 +16,7 @@ export class LoginCardComponent implements OnInit {
   errorMessage: string = '';
   showError: boolean;
   
-  constructor(private authService: AuthenticationService, private router: Router) { }
+  constructor(private authService: AuthenticationService, private router: Router,private dialogRef: MatDialogRef<LoginCardComponent>) { }
   ngOnInit(): void {
     this.loginForm = new FormGroup({
       nickname: new FormControl(''),
@@ -40,6 +40,7 @@ export class LoginCardComponent implements OnInit {
         localStorage.setItem("token", res.token);
         this.authService.sendAuthStateChangeNotification(res.isAuthSuccessful);
         console.log("Successful login");
+        this.closeModal()
       } ,
       error: (err: HttpErrorResponse) => {   
         console.log(err);  
@@ -48,4 +49,7 @@ export class LoginCardComponent implements OnInit {
     })
   }
 
+  closeModal(): void {
+    this.dialogRef.close({success: true}); // Closes the modal
+  }
 }

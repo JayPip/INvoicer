@@ -5,6 +5,7 @@ import { LoginResponseDto } from '../Models/LoginResponseDto';
 import { RegistrationResponseDto } from '../Models/RegistrationResponseDto';
 import { UserForLoginDto } from '../Models/UserForLoginDto';
 import { UserForRegistrationDto } from '../Models/UserForRegistrationDto';
+import {jwtDecode} from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -28,5 +29,25 @@ export class AuthenticationService {
     //remove user login token from local storage and notifcy subscribed components
     localStorage.removeItem("token");
     this.sendAuthStateChangeNotification(false);
+  }
+
+  public isUserAuthenticated(): boolean {
+    const token = localStorage.getItem("token");
+    if (!token) return false; // No token means user is not authenticated
+    if(this.isTokenExpired(token)){
+      localStorage.removeItem("token")
+    }
+    return !this.isTokenExpired(token);
+  }
+
+  private isTokenExpired(token: string): boolean {
+    try {
+      const decoded: any = jwtDecode(token);
+      if (!decoded.exp) return true;
+      const expiryDate = new Date(decoded.exp * 1000);
+      return expiryDate < new Date(); 
+    } catch (error) {
+      return true; 
+    }
   }
 }

@@ -45,6 +45,7 @@ namespace ProductsApp.Controllers
             product.Code = updatedProduct.Code;
             product.Name = updatedProduct.Name;
             product.Price = updatedProduct.Price;
+            product.TaxRate = updatedProduct.TaxRate;
             await _appDbContext.SaveChangesAsync();
             return Ok(product);
         }
