@@ -5,7 +5,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using DotNetEnv;
 
+Env.Load();
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -44,10 +46,21 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
+builder.Configuration.AddEnvironmentVariables();
+
 // Configure the HTTP request pipeline.
 app.UseSwagger();
 app.UseSwaggerUI();
 app.UseHttpsRedirection();
+var uploadsPath = Path.Combine("/Users/jakub/RiderProjects/Products-CRUD", "Uploads");
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider(uploadsPath),
+    RequestPath = "/Uploads",
+    ServeUnknownFileTypes = true, // Allow serving all file types
+    DefaultContentType = "application/octet-stream"
+});
 app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 app.UseAuthentication();
 app.UseAuthorization();

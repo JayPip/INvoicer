@@ -40,6 +40,7 @@ export class LoginCardComponent implements OnInit {
         localStorage.setItem("token", res.token);
         this.authService.sendAuthStateChangeNotification(res.isAuthSuccessful);
         console.log("Successful login");
+        
         this.closeModal()
       } ,
       error: (err: HttpErrorResponse) => {   

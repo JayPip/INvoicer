@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductsListComponent } from './Components/products-list/products-list.component';
@@ -21,6 +21,8 @@ import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { UploadInvoiceComponent } from './Components/upload-invoice/upload-invoice.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ModalComponent } from './Components/modal/modal.component';
+import { AuthInterceptorService } from './Services/auth-interceptor.service';
+import { GenerateInvoiceComponent } from './Components/generate-invoice/generate-invoice.component';
 
 
 @NgModule({
@@ -36,7 +38,8 @@ import { ModalComponent } from './Components/modal/modal.component';
     NavbarComponent,
     DashboardComponent,
     UploadInvoiceComponent,
-    ModalComponent
+    ModalComponent,
+    GenerateInvoiceComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ import { ModalComponent } from './Components/modal/modal.component';
     MatListModule,
     MatDialogModule
   ],
-  providers: [],
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true } // Register the interceptor
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

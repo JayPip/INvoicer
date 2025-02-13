@@ -7,6 +7,7 @@ using ProductsApp.Models;
 namespace ProductsApp.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("api/[controller]")]
     public class ProductsController : Controller
     {
@@ -26,7 +27,7 @@ namespace ProductsApp.Controllers
         [HttpPost]
         public async Task<IActionResult> AddProduct([FromBody]Product newProduct)
         {
-             await _appDbContext.Products.AddAsync(newProduct);
+            await _appDbContext.Products.AddAsync(newProduct);
             await _appDbContext.SaveChangesAsync();
             return Ok(newProduct);
         }

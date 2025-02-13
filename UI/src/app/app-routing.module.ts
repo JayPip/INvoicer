@@ -8,6 +8,8 @@ import { ProductsListComponent } from './Components/products-list/products-list.
 import { RegisterCardComponent } from './Components/register-card/register-card.component';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { UploadInvoiceComponent } from './Components/upload-invoice/upload-invoice.component';
+import { GenerateInvoiceComponent } from './Components/generate-invoice/generate-invoice.component';
+import { TaxInfoComponent } from './Components/tax-info/tax-info.component';
 
 const routes: Routes = [
   {
@@ -25,6 +27,14 @@ const routes: Routes = [
   {
     path: 'upload',
     component:UploadInvoiceComponent
+  },
+  {
+    path: 'generate',
+    component:GenerateInvoiceComponent
+  },
+  {
+    path: 'summary',
+    component:TaxInfoComponent
   }
 ];
 
